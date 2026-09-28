@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <title>NoTka │ 404 - Сторінку не знайдено</title>
+
+    <meta name="description" content="NoTka — унікальний український Vanilla+ сервер з творчим та дружнім ком'юніті." />
+    <meta property="og:title" content="NoTka │ 404" />
+    <meta property="og:description" content="Сторінку не знайдено — NoTka" />
+    <meta property="og:type" content="website" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicons/apple-touch-icon.png" id="fav-apple" />
+    <link rel="icon" type="image/png" sizes="96x96" href="static/favicons/favicon-96x96.png" id="fav-96" />
+    <link rel="shortcut icon" href="static/favicons/favicon.ico" id="fav-ico" />
+    <meta name="msapplication-TileColor" content="#a855f7" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script>
+      // Immediate routing check for /players/{username} on GitHub Pages
+      (function() {
+        var path = window.location.pathname;
+        var match = path.match(/\/players\/([^/?#]+)/i);
+        if (match && match[1] && match[1].toLowerCase() !== 'profile' && !match[1].toLowerCase().endsWith('.html')) {
+          var username = match[1];
+          // Determine repo path prefix if any
+          var playersIdx = path.indexOf('/players/');
+          var prefix = path.substring(0, playersIdx);
+          window.location.replace(prefix + '/players/profile/#' + encodeURIComponent(username));
+        }
+      })();
+
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: rgba(255, 255, 255, 0.8);
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #9333ea;
+        --primary-hover: #7e22ce;
+        --accent-gradient: linear-gradient(135deg, #a855f7, #6366f1);
+        --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+        --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #090614;
+        --card-bg: rgba(22, 13, 44, 0.7);
+        --text-color: #f8fafc;
+        --text-muted: #94a3b8;
+        --primary: #a855f7;
+        --primary-hover: #c084fc;
+        --glass-border: 1px solid rgba(168, 85, 247, 0.2);
+        --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: #a855f7;
+        top: 10%;
+        left: 15%;
+        animation: floatOrb 10s ease-in-out infinite alternate;
+      }
+
+      .orb-2 {
+        width: 450px;
+        height: 450px;
+        background: #6366f1;
+        bottom: 10%;
+        right: 15%;
+        animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes floatOrb {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(40px, 30px) scale(1.1); }
+      }
+
+      .nav-island {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1100px;
+        background: var(--card-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: var(--glass-border);
+        border-radius: 50px;
+        padding: 10px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .logo img {
+        border-radius: 50%;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .discord-icon, #theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(168, 85, 247, 0.1);
+        color: var(--primary);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: transform 0.2s, background 0.2s;
+      }
+
+      .discord-icon:hover, #theme-toggle:hover {
+        transform: scale(1.1);
+        background: rgba(168, 85, 247, 0.2);
+      }
+
+      .error-wrapper {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 20px 40px;
+        text-align: center;
+      }
+
+      .error-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: var(--glass-border);
+        border-radius: 30px;
+        padding: 60px 40px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: var(--shadow);
+        animation: floatCard 6s ease-in-out infinite;
+      }
+
+      .error-code {
+        font-size: 7.5rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 10px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        display: inline-block;
+      }
+
+      .error-code::after {
+        content: "404";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: blur(15px);
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .error-en-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-muted);
+        margin-top: -5px;
+        margin-bottom: 20px;
+      }
+
+      .error-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        color: var(--text-color);
+      }
+
+      .error-desc {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .minecraft-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+        animation: rotateIcon 10s linear infinite;
+      }
+
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+      }
+
+      @keyframes rotateIcon {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(10deg); }
+        75% { transform: rotate(-10deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      .btn-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 36px;
+        background: var(--accent-gradient);
+        color: #ffffff;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-decoration: none;
+        border: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 5px 20px rgba(168, 85, 247, 0.4);
+      }
+
+      .btn-home:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
+      }
+
+      footer {
+        background: var(--card-bg);
+        border-top: var(--glass-border);
+        padding: 40px 20px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.2s;
+      }
+
+      footer a:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .error-code { font-size: 5.5rem; }
+        .error-title { font-size: 1.4rem; }
+        .error-card { padding: 40px 20px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <nav class="nav-island" id="navbar" aria-label="Основна навігація">
+      <div class="nav-left">
+        <a href="" id="nav-logo-link" class="logo" aria-label="Головна сторінка NoTka">
+          <img src="" id="nav-logo-img" alt="Логотип NoTka" width="44" height="44" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="" id="nav-home">Головна</a></li>
+          <li><a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a></li>
+          <li><a href="" id="nav-players">Гравці</a></li>
+          <li><a href="" id="nav-rules">Правила</a></li>
+          <li><a href="https://map.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Мапа</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <a href="https://discord.gg/y4vEfn7qS9" target="_blank" class="discord-icon" aria-label="Discord спільнота NoTka" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+        </a>
+        <button id="theme-toggle" aria-label="Змінити тему оформлення"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+
+    <main class="error-wrapper">
+      <div class="error-card">
+        <div class="minecraft-icon">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <div class="error-code">404</div>
+        <div class="error-en-title">Page Not Found</div>
+        <h1 class="error-title">Ви загубилися у Безодні</h1>
+        <p class="error-desc">
+          Сторінку, яку ви шукаєте, не знайдено або вона була переміщена. Можливо, кріпер підірвав її?
+        </p>
+        <a href="" id="btn-back-home" class="btn-home">
+          <i class="fa-solid fa-house"></i> На Головну
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <p style="margin-bottom: 10px;">
+        <a href="" id="foot-home">Головна</a> • 
+        <a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a> • 
+        <a href="" id="foot-players">Гравці</a> • 
+        <a href="" id="foot-rules">Правила</a> • 
+        <a href="https://discord.gg/y4vEfn7qS9" target="_blank" rel="noopener noreferrer">Discord</a>
+      </p>
+      <p>© 2025-<span id="footer-year"></span> notka.pp.ua v1.4.5</p>
+      <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">СЕРВЕР НЕ ПОВ'ЯЗАНИЙ З MOJANG АБО MICROSOFT.</p>
+    </footer>
+
+    <script>
+      // Auto-detect root base URL so 404 works whether at domain root or in /repo-name/ subfolder
+      (function() {
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Calculate site root path
+        var path = window.location.pathname;
+        var rootPath = './';
+        
+        // If pathname contains known sub-routes, find root prefix
+        var match = path.match(/^(.*\/)(rules|players|profile|static)/i);
+        if (match) {
+          rootPath = match[1];
+        } else {
+          // If in a repo subpath, e.g. /my-repo/missing-page -> root is /my-repo/
+          var segments = path.split('/').filter(Boolean);
+          if (segments.length > 1) {
+            rootPath = '/' + segments[0] + '/';
+          } else {
+            rootPath = '/';
+          }
+        }
+
+        // Set dynamic links
+        var homeHref = rootPath === '/' ? '/' : rootPath;
+        var playersHref = rootPath.replace(/\/$/, '') + '/players/';
+        var rulesHref = rootPath.replace(/\/$/, '') + '/rules/';
+        var logoSrc = rootPath.replace(/\/$/, '') + '/static/img/logo.webp';
+
+        var navLogoLink = document.getElementById('nav-logo-link');
+        if (navLogoLink) navLogoLink.href = homeHref;
+
+        var navLogoImg = document.getElementById('nav-logo-img');
+        if (navLogoImg) navLogoImg.src = logoSrc;
+
+        var navHome = document.getElementById('nav-home');
+        if (navHome) navHome.href = homeHref;
+
+        var navPlayers = document.getElementById('nav-players');
+        if (navPlayers) navPlayers.href = playersHref;
+
+        var navRules = document.getElementById('nav-rules');
+        if (navRules) navRules.href = rulesHref;
+
+        var btnHome = document.getElementById('btn-back-home');
+        if (btnHome) btnHome.href = homeHref;
+
+        var footHome = document.getElementById('foot-home');
+        if (footHome) footHome.href = homeHref;
+
+        var footPlayers = document.getElementById('foot-players');
+        if (footPlayers) footPlayers.href = playersHref;
+
+        var footRules = document.getElementById('foot-rules');
+        if (footRules) footRules.href = rulesHref;
+
+        // Favicons
+        var favApple = document.getElementById('fav-apple');
+        if (favApple) favApple.href = rootPath.replace(/\/$/, '') + '/static/favicons/apple-touch-icon.png';
+        var fav96 = document.getElementById('fav-96');
+        if (fav96) fav96.href = rootPath.replace(/\/$/, '') + '/static/favicons/favicon-96x96.png';
+        var favIco = document.getElementById('fav-ico');
+        if (favIco) favIco.href = rootPath.replace(/\/$/, '') + '/static/favicons/favicon.ico';
+      })();
+
+      // Theme toggle logic
+      var themeBtn = document.getElementById('theme-toggle');
+      if (themeBtn) {
+        var themeIcon = themeBtn.querySelector('i');
+        var html = document.documentElement;
+
+        if (html.getAttribute('data-theme') === 'dark') {
+          themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeBtn.addEventListener('click', function() {
+          var isDark = html.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            html.removeAttribute('data-theme');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+          } else {
+            html.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

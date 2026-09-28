@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <title>NoTka │ Профіль</title>
+
+    <meta name="description" content="NoTka — унікальний український Vanilla+ сервер з творчим та дружнім ком'юніті. У нас немає приватів, є власний сайт, мапа та своя історія, а найголовніше — це наші гравці" />
+    <meta property="og:title" content="NoTka │ Профіль" />
+    <meta property="og:description" content="NoTka — унікальний український Vanilla+ сервер з творчим та дружнім ком'юніті. У нас немає приватів, є власний сайт, мапа та своя історія, а найголовніше — це наші гравці" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../../static/img/og_main_image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="NoTka" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NoTka │ Профіль" />
+    <meta name="twitter:description" content="NoTka — унікальний український Vanilla+ сервер" />
+    <meta name="twitter:image" content="../../static/img/og_main_image.jpg" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../../static/favicons/favicon-96x96.png" />
+    <link rel="manifest" href="../../static/favicons/site.webmanifest" />
+    <link rel="mask-icon" href="../../static/favicons/favicon.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="../../static/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#a855f7" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script>
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../static/css/variables.css?v=16" />
+    <link rel="stylesheet" href="../../static/css/base.css?v=16" />
+    <link rel="stylesheet" href="../../static/css/layout.css?v=16" />
+    <link rel="stylesheet" href="../../static/css/components.css?v=16" />
+    <link rel="stylesheet" href="../../static/css/animations.css?v=16" />
+    <link rel="stylesheet" href="../../static/css/pages/profile.css?v=16" />
+  </head>
+  <body>
+    <nav class="mobile-menu-overlay" id="mobile-menu" aria-label="Мобільна навігація">
+      <a href="../../" class="mobile-link">Головна</a>
+      <a href="https://wiki.notka.pp.ua/" class="mobile-link" target="_blank" rel="noopener noreferrer">Вікі</a>
+      <a href="../" class="mobile-link active">Гравці</a>
+      <a href="../../rules/" class="mobile-link">Правила</a>
+      <a href="https://map.notka.pp.ua/" class="mobile-link" target="_blank" rel="noopener noreferrer">Мапа</a>
+    </nav>
+    
+    <div class="background-container">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div id="floating-icons-container"></div>
+    </div>
+
+    <nav class="nav-island" id="navbar" aria-label="Основна навігація">
+      <div class="nav-left">
+        <a href="../../" class="logo" aria-label="Головна сторінка NoTka">
+          <img src="../../static/img/logo.webp" alt="Логотип NoTka" width="50" height="50" />
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="../../">Головна</a>
+          </li>
+          <li>
+            <a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a>
+          </li>
+          <li>
+            <a href="../" class="active">Гравці</a>
+          </li>
+          <li>
+            <a href="../../rules/">Правила</a>
+          </li>
+          <li>
+            <a href="https://map.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Мапа</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <a href="https://discord.gg/y4vEfn7qS9" target="_blank" class="discord-icon" aria-label="Discord спільнота NoTka" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+        </a>
+        
+        <button id="theme-toggle" aria-label="Змінити тему оформлення"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+
+        <button id="mobile-menu-btn" aria-label="Відкрити меню навігації" aria-expanded="false" aria-controls="mobile-menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+
+    <main class="profile-page-wrapper">
+      <div id="error-message" class="error-container" style="display: none">
+        <i class="fa-solid fa-user-slash"></i>
+        <h1>Цей гравець у нас не грає</h1>
+        <p>
+          Ми не знайшли гравця з ніком
+          <span id="error-nick" class="highlight-nick">...</span>.
+        </p>
+        <a href="../" class="btn-back">Повернутися до списку</a>
+      </div>
+
+      <div id="profile-content">
+        <div class="breadcrumbs" data-aos="fade-down">
+          <a href="../" class="bread-link">Гравці</a>
+          <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="current-nick" style="display: inline-flex; align-items: center; gap: 6px;">
+            <img id="bread-head" src="" alt="Аватар гравця" style="width: 22px; height: 22px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: none;">
+            <span id="bread-nick">Завантаження...</span>
+          </span>
+        </div>
+
+        <div class="profile-container" data-aos="fade-up">
+          <div class="left-column">
+            <div class="skin-card">
+              <div class="skin-wrapper">
+                <canvas id="skin_container"></canvas>
+
+                <a id="dl-btn" href="#" class="dl-skin-btn" title="Завантажити" aria-label="Завантажити скін гравця" target="_blank">
+                  <i class="fa-solid fa-download" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="skin-controls">
+                <button class="control-btn active" id="btn-walk" type="button">
+                  <i class="fa-solid fa-walking"></i> Ходьба
+                </button>
+                <button class="control-btn" id="btn-rotate" type="button">
+                  <i class="fa-solid fa-sync"></i> Обертання
+                </button>
+              </div>
+            </div>
+
+            <div class="social-buttons" style="display: flex; flex-direction: column; gap: 10px;">
+              <a id="btn-discord-profile" class="discord-profile-btn" style="display: none;" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-discord"></i> Discord
+              </a>
+              <a id="btn-youtube-profile" class="discord-profile-btn yt-btn" style="display: none;" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i> YouTube
+              </a>
+              <a id="btn-twitch-profile" class="discord-profile-btn twitch-btn" style="display: none;" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-twitch"></i> Twitch
+              </a>
+              <a id="btn-telegram-profile" class="discord-profile-btn tg-btn" style="display: none;" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-telegram"></i> Telegram
+              </a>
+            </div>
+
+            <div id="sponsor-big-box" class="sponsor-big-card not-sponsor" style="min-height: 120px;">
+              <div class="sp-icon"><i class="fa-regular fa-star"></i></div>
+              <div class="sp-title">Спонсорство</div>
+              <div class="sp-text" style="font-size: 0.9rem; color: var(--text-muted);">Дані недоступні</div>
+              <a href="https://wiki.notka.pp.ua/info/donate" target="_blank" rel="noopener noreferrer" class="gift-link">Підтримати проєкт</a>
+            </div>
+          </div>
+
+          <div class="right-column">
+            <div class="profile-header">
+              <div class="nick-row">
+                <h1 class="player-nick" id="player-nick">PlayerName</h1>
+                <div id="sponsor-star" class="sponsor-star" style="display: none">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div id="online-dot" class="online-dot" style="display: none"></div>
+              </div>
+              <div id="player-description" class="player-description" style="display: none; margin-top: 5px; margin-bottom: 15px; color: var(--text-color); font-size: 1.05rem; line-height: 1.5; word-wrap: break-word; word-break: break-word;"></div>
+              <div class="roles-row" id="roles-container">
+                <span class="role-badge player">Гравець</span>
+              </div>
+            </div>
+
+            <h2 class="section-title">Статистика</h2>
+            <div class="primary-stats-grid">
+              <div class="primary-stat-card">
+                <div class="p-icon-large">
+                  <i class="fa-regular fa-calendar"></i>
+                </div>
+                <div class="p-info">
+                  <div class="p-stat-label">Дата реєстрації</div>
+                  <div class="p-stat-val" id="val-join-date">Невідомо</div>
+                  <div class="p-stat-sub" style="min-width: 60px; min-height: 1em;"></div>
+                </div>
+              </div>
+
+              <div class="primary-stat-card">
+                <div class="p-icon-large">
+                  <i class="fa-regular fa-clock"></i>
+                </div>
+                <div class="p-info">
+                  <div class="p-stat-label">Награно</div>
+                  <div class="p-stat-val" id="val-play-time">Сервер офлайн</div>
+                  <div class="p-stat-sub" id="sub-play-days">Немає даних</div>
+                </div>
+              </div>
+
+              <div class="primary-stat-card" id="status-card">
+                <div class="p-icon-large" id="status-icon-bg">
+                  <i class="fa-solid fa-power-off" id="status-icon"></i>
+                </div>
+                <div class="p-info">
+                  <div class="p-stat-label" id="status-label">Статус</div>
+                  <div class="p-stat-val" id="val-status">Офлайн</div>
+                  <div class="p-stat-sub" id="sub-status">Сервер офлайн</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-divider"></div>
+
+            <div class="secondary-stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-door-open"></i> Сесій
+                </div>
+                <div class="stat-val" id="val-sessions">0</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-skull-crossbones"></i> Вбито гравцями
+                </div>
+                <div class="stat-val" id="val-killed-by">0</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-khanda"></i> Всього смертей
+                </div>
+                <div class="stat-val" id="val-deaths">0</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-spider"></i> Вбито мобів
+                </div>
+                <div class="stat-val" id="val-mob-kills">0</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-paper-plane"></i> На елітрах
+                </div>
+                <div class="stat-val" id="val-aviate">0 км</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-person-running"></i> Бігом
+                </div>
+                <div class="stat-val" id="val-sprint">0 км</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-shoe-prints"></i> Пішки
+                </div>
+                <div class="stat-val" id="val-walk">0 км</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-label">
+                  <i class="fa-solid fa-water"></i> Вплав
+                </div>
+                <div class="stat-val" id="val-swim">0 км</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Навігація</h4>
+          <a href="../../">Головна</a>
+          <a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a>
+          <a href="../">Гравці</a>
+          <a href="../../rules/">Правила</a>
+          <a href="https://map.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Мапа</a>
+        </div>
+        <div class="footer-col">
+          <h4>Спільнота</h4>
+          <a href="https://discord.gg/y4vEfn7qS9" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://www.tiktok.com/@nottkaua" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="footer-col">
+          <h4>Моніторинги</h4>
+          <a href="https://allmc.in.ua/mc-notka-pp-ua" target="_blank" rel="noopener noreferrer">allmc</a>
+          <a href="https://monicore.com.ua/server/372/notka-vanilla" target="_blank" rel="noopener noreferrer">monicore</a>
+          <a href="https://disflip.com/guild/1226603339240964256" target="_blank" rel="noopener noreferrer">disflip</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <p>© 2025-<span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear()</script> notka.pp.ua v1.4.5</p>
+          <p>СЕРВЕР НЕ ПОВ'ЯЗАНИЙ З MOJANG АБО MICROSOFT.</p>
+        </div>
+        <div class="footer-right">
+          <a href="#">Користувацька угода</a>
+          <a href="#">Політика конфіденційності</a>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" title="Вгору" aria-label="Прокрутити вгору"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
+    <script src="../../static/js/skin-viewer.js?v=16"></script>
+    <script src="../../static/js/theme.js"></script>
+    <script src="../../static/js/layout.js?v=16"></script>
+    <script src="../../static/js/profile.js?v=16"></script>
+    
+    <script>
+      AOS.init({
+        once: true,
+        duration: 800,
+      });
+    </script>
+  </body>
+</html>

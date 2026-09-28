@@ -1,0 +1,36 @@
+:root {
+  --bg-color: #f1f5f9;
+  --text-color: #334155;
+  --text-muted: #64748b;
+  --primary: #a855f7;
+  --accent-gradient: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: none;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  --spotlight-color: rgba(168, 85, 247, 0.15);
+  --discord-color: #334155;
+  --btn-up-bg: #e2e8f0;
+  --btn-up-color: #334155;
+
+  --z-base: 1;
+  --z-sticky: 10;
+  --z-dropdown: 50;
+  --z-navbar: 100;
+  --z-modal-backdrop: 500;
+  --z-modal: 510;
+  --z-toast: 1000;
+  --z-preloader: 9999;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(30, 41, 59, 0.6);
+  --glass-border: none;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --spotlight-color: rgba(168, 85, 247, 0.25);
+  --discord-color: #ffffff;
+  --btn-up-bg: #1e293b;
+  --btn-up-color: #f1f5f9;
+}

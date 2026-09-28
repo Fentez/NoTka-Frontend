@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <title>NoTka │ Правила</title>
+
+    <meta name="description" content="NoTka — унікальний український Vanilla+ сервер з творчим та дружнім ком'юніті. У нас немає приватів, є власний сайт, мапа та своя історія, а найголовніше — це наші гравці" />
+    <meta property="og:title" content="NoTka │ Правила" />
+    <meta property="og:description" content="NoTka — унікальний український Vanilla+ сервер з творчим та дружнім ком'юніті. У нас немає приватів, є власний сайт, мапа та своя історія, а найголовніше — це наші гравці" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../static/img/og_main_image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="NoTka" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NoTka │ Правила" />
+    <meta name="twitter:description" content="NoTka — унікальний український Vanilla+ сервер" />
+    <meta name="twitter:image" content="../static/img/og_main_image.jpg" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../static/favicons/favicon-96x96.png" />
+    <link rel="manifest" href="../static/favicons/site.webmanifest" />
+    <link rel="mask-icon" href="../static/favicons/favicon.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="../static/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#a855f7" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script>
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../static/css/variables.css?v=16" />
+    <link rel="stylesheet" href="../static/css/base.css?v=16" />
+    <link rel="stylesheet" href="../static/css/layout.css?v=16" />
+    <link rel="stylesheet" href="../static/css/components.css?v=16" />
+    <link rel="stylesheet" href="../static/css/animations.css?v=16" />
+
+    <style>
+      .page-header {
+        padding: 120px 20% 40px;
+        text-align: center;
+      }
+
+      .warning-box {
+        background: rgba(220, 38, 38, 0.1);
+        border: 1px solid rgba(220, 38, 38, 0.3);
+        color: #ef4444;
+        padding: 15px 25px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 20px;
+        font-weight: 700;
+        backdrop-filter: blur(5px);
+      }
+      .rules-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .rule-card ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .rule-card li {
+        line-height: 1.6;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      .rule-card strong {
+        color: var(--text-color);
+        margin-right: 5px;
+      }
+
+      .rule-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      }
+
+      .rule-header i {
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+
+      .rule-header h2 {
+        font-size: 1.4rem;
+        margin: 0;
+      }
+
+      .important-note {
+        margin-top: 40px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 12px;
+        border: var(--glass-border);
+      }
+
+      @media (min-width: 768px) {
+        .rules-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .full-width {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="mobile-menu-overlay" id="mobile-menu" aria-label="Мобільна навігація">
+      <a href="../" class="mobile-link">Головна</a>
+      <a href="https://wiki.notka.pp.ua/" class="mobile-link" target="_blank" rel="noopener noreferrer">Вікі</a>
+      <a href="../players/" class="mobile-link">Гравці</a>
+      <a href="./" class="mobile-link active">Правила</a>
+      <a href="https://map.notka.pp.ua/" class="mobile-link" target="_blank" rel="noopener noreferrer">Мапа</a>
+    </nav>
+    
+    <div class="background-container">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div id="floating-icons-container"></div>
+    </div>
+
+    <nav class="nav-island" id="navbar" aria-label="Основна навігація">
+      <div class="nav-left">
+        <a href="../" class="logo" aria-label="Головна сторінка NoTka">
+          <img src="../static/img/logo.webp" alt="Логотип NoTka" width="50" height="50" />
+        </a>
+        <ul class="nav-links">
+          <li>
+            <a href="../">Головна</a>
+          </li>
+          <li>
+            <a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a>
+          </li>
+          <li>
+            <a href="../players/">Гравці</a>
+          </li>
+          <li>
+            <a href="./" class="active">Правила</a>
+          </li>
+          <li>
+            <a href="https://map.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Мапа</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <a href="https://discord.gg/y4vEfn7qS9" target="_blank" class="discord-icon" aria-label="Discord спільнота NoTka" rel="noopener noreferrer">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+        </a>
+        
+        <button id="theme-toggle" aria-label="Змінити тему оформлення"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+
+        <button id="mobile-menu-btn" aria-label="Відкрити меню навігації" aria-expanded="false" aria-controls="mobile-menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+
+    <header class="page-header" data-aos="fade-down">
+      <h1 class="hero-title">Правила Сервера</h1>
+      <div class="warning-box">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        Незнання правил не звільняє вас від відповідальності
+      </div>
+    </header>
+
+    <section class="section-grid" data-aos="fade-up">
+      <div class="rules-grid">
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-handshake"></i>
+            <h2>1. Етика та спілкування</h2>
+          </div>
+          <ul>
+            <li><strong>1.1. Мова:</strong> Основна мова сервера — українська. Використання мови агресора заборонено.</li>
+            <li><strong>1.2. Повага:</strong> Заборонені прямі образи, пасивна агресія, приниження, цькування (булінг) та переслідування гравців.</li>
+            <li><strong>1.3. Атмосфера:</strong> Заборонено навмисне псування настрою іншим, токсична поведінка, провокації.</li>
+            <li><strong>1.4. Цензура:</strong> Заборонено надмірне використання нецензурної лексики.</li>
+            <li><strong>1.5. PvP:</strong> Заборонено вбивати гравців без їхньої згоди.</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>2. Майно та гриферство</h2>
+          </div>
+          <ul>
+            <li><strong>2.1. Гриферство:</strong> Заборонено руйнувати чужі споруди без дозволу власника або адміністрації.</li>
+            <li><strong>2.2. Крадіжки:</strong> Заборонено брати речі з чужих скринь/сховищ без згоди власника.</li>
+            <li><strong>2.3. Лут:</strong> Заборонено підбирати та привласнювати речі загиблого гравця без його дозволу.</li>
+            <li><strong>2.4. Взаємодія:</strong> Заборонено змінювати таблички або ціни в чужих магазинах/будівлях.</li>
+            <li><strong>2.5. Тварини:</strong> Заборонено вбивати домашніх улюбленців інших гравців.</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <h2>3. Територія та власність</h2>
+          </div>
+          <ul>
+            <li><strong>3.1. Власність:</strong> Територія вважається приватною, якщо вона позначена табличкою, має забудови або якщо гравець проживає там тривалий час.</li>
+            <li><strong>3.2. Захоплення:</strong> Заборонено видавати себе за власника чужого дому чи території.</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-gavel"></i>
+            <h2>4. Чесна гра</h2>
+          </div>
+          <ul>
+            <li><strong>4.1. Чити:</strong> Заборонено використання читів, X-Ray та будь-яких програм, що дають перевагу.</li>
+            <li><strong>4.2. Баги:</strong> Заборонено використання багів гри. Знайшли помилку — повідомте адміністрацію.</li>
+            <li><strong>4.3. Акаунти:</strong> Заборонена гра з декількох акаунтів (боти, альти) для отримання вигоди.<br />В анкеті, в ознайомленні з правилами вкажіть ваш улюблений емодзі.</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-comments"></i>
+            <h2>5. Чат та реклама</h2>
+          </div>
+          <ul>
+            <li><strong>5.1. Спам:</strong> Заборонено флуд, капс та дублювання однакових повідомлень.</li>
+            <li><strong>5.2. Реклама:</strong> Заборонена реклама сторонніх серверів, Discord-спільнот, соцмереж та самопіар.</li>
+            <li><strong>5.3. Обговорення:</strong> Згадка інших проектів дозволена лише в контексті порівняння, без закликів.</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card">
+          <div class="rule-header">
+            <i class="fa-solid fa-tree"></i>
+            <h2>6. Екологія та будівництво</h2>
+          </div>
+          <ul>
+            <li><strong>6.1. Охайність:</strong> Прибирайте за собою випадкові блоки, стовпи та недорубані дерева.</li>
+            <li><strong>6.2. Навантаження:</strong> Заборонено будувати лаг-машини, що перевантажують сервер.</li>
+            <li><strong>6.3. Символіка:</strong> Заборонені образливі, політичні чи провокаційні символи (свастика, символіка агресора).</li>
+          </ul>
+        </div>
+
+        <div class="card rule-card full-width">
+          <div class="rule-header">
+            <i class="fa-solid fa-coins"></i>
+            <h2>7. Економіка та торгівля</h2>
+          </div>
+          <ul>
+            <li><strong>7.1. Оплата:</strong> Заборонено брати товар у магазинах, не залишивши повну оплату.</li>
+            <li><strong>7.2. Ціни:</strong> Ціни в магазинах мають бути зрозумілими та адекватними.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="important-note" data-aos="fade-up">
+        <p>
+          <i class="fa-solid fa-circle-info"></i> Оскільки іноді неможливо точно
+          визначити порушення, в спірних ситуаціях остаточне рішення залишається
+          за адміністрацією.<br /><br />
+          Будь-які фінансові внески вважаються добровільною пожертвою на
+          розвиток проєкту і поверненню не підлягають.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Навігація</h4>
+          <a href="../">Головна</a>
+          <a href="https://wiki.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Вікі</a>
+          <a href="../players/">Гравці</a>
+          <a href="./">Правила</a>
+          <a href="https://map.notka.pp.ua/" target="_blank" rel="noopener noreferrer">Мапа</a>
+        </div>
+        <div class="footer-col">
+          <h4>Спільнота</h4>
+          <a href="https://discord.gg/y4vEfn7qS9" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://www.tiktok.com/@nottkaua" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="footer-col">
+          <h4>Моніторинги</h4>
+          <a href="https://allmc.in.ua/mc-notka-pp-ua" target="_blank" rel="noopener noreferrer">allmc</a>
+          <a href="https://monicore.com.ua/server/372/notka-vanilla" target="_blank" rel="noopener noreferrer">monicore</a>
+          <a href="https://disflip.com/guild/1226603339240964256" target="_blank" rel="noopener noreferrer">disflip</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <p>© 2025-<span id="footer-year"></span><script>document.getElementById('footer-year').textContent=new Date().getFullYear()</script> notka.pp.ua v1.4.5</p>
+          <p>СЕРВЕР НЕ ПОВ'ЯЗАНИЙ З MOJANG АБО MICROSOFT.</p>
+        </div>
+        <div class="footer-right">
+          <a href="#">Користувацька угода</a>
+          <a href="#">Політика конфіденційності</a>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" title="Вгору" aria-label="Прокрутити вгору"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/layout.js?v=16"></script>
+    
+    <script>
+      AOS.init({
+        once: true,
+        duration: 800,
+      });
+    </script>
+  </body>
+</html>
